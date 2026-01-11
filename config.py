@@ -16,16 +16,16 @@ MODELS = {
 
 # Generation Parameters
 GENERATION_CONFIG = {
-    'max_length': 150,
-    'min_length': 50,
+    'max_length': 250,        # Increased from 150 to allow longer summaries (~185 words)
+    'min_length': 100,        # Increased from 50 to ensure detail
     'num_beams': 4,
-    'length_penalty': 2.0,
+    'length_penalty': 0.8,    # Reduced from 2.0 to encourage longer output
     'early_stopping': True,
     'no_repeat_ngram_size': 3,
 }
 
 # Input Processing
-MAX_INPUT_LENGTH = 1024  # Max tokens for input
+MAX_INPUT_LENGTH = 2048  # Increased from 1024 to handle longer clinical notes
 
 # Note Structure Variants
 STRUCTURE_VARIANTS = [

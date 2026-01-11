@@ -61,9 +61,9 @@ class NoteStructureManipulator:
         """
         clinical_text = self.extract_clinical_content(text)
 
-        # Remove section headers
+        # Remove section headers (replace with space to avoid word concatenation)
         for pattern in self.section_patterns:
-            clinical_text = re.sub(pattern, '', clinical_text, flags=re.IGNORECASE)
+            clinical_text = re.sub(pattern, ' ', clinical_text, flags=re.IGNORECASE)
 
         return clinical_text.strip()
 
@@ -74,12 +74,12 @@ class NoteStructureManipulator:
         """
         clinical_text = self.extract_clinical_content(text)
 
-        # Remove section headers
+        # Remove section headers (replace with space to avoid word concatenation)
         for pattern in self.section_patterns:
-            clinical_text = re.sub(pattern, '', clinical_text, flags=re.IGNORECASE)
+            clinical_text = re.sub(pattern, ' ', clinical_text, flags=re.IGNORECASE)
 
-        # Remove bullet points
-        clinical_text = re.sub(r'[\*\-•]\s+', '', clinical_text)
+        # Remove bullet points (replace with space)
+        clinical_text = re.sub(r'[\*\-•]\s+', ' ', clinical_text)
 
         # Replace multiple newlines with single space
         clinical_text = re.sub(r'\n+', ' ', clinical_text)
