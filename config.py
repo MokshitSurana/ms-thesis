@@ -25,7 +25,7 @@ GENERATION_CONFIG = {
 }
 
 # Input Processing
-MAX_INPUT_LENGTH = 2048  # Increased from 1024 to handle longer clinical notes
+MAX_INPUT_LENGTH = 1024  # BART max position embeddings (cannot exceed without model modification)
 
 # Note Structure Variants
 STRUCTURE_VARIANTS = [
