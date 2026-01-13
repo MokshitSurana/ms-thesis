@@ -10,7 +10,8 @@ MODELS = {
     },
     'medical': {
         'clinical-t5': 'luqh/ClinicalT5-large',  # Medical T5 variant
-        'biogpt': 'microsoft/biogpt-large',       # Alternative medical model
+        # Note: BioGPT removed - it's a causal LM (decoder-only), not seq2seq
+        # 'biogpt': 'microsoft/biogpt-large',  # Incompatible: not a seq2seq model
     }
 }
 
