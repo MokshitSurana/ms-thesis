@@ -9,9 +9,11 @@ MODELS = {
         'pegasus': 'google/pegasus-large',
     },
     'medical': {
-        'clinical-t5': 'luqh/ClinicalT5-large',  # Medical T5 variant
-        # Note: BioGPT removed - it's a causal LM (decoder-only), not seq2seq
-        # 'biogpt': 'microsoft/biogpt-large',  # Incompatible: not a seq2seq model
+        # Native PyTorch models (no flax dependency)
+        'biobart': 'GanjinZero/biobart-v2-large',      # BioBERT + BART
+        'clinical-longformer': 'yikuan8/Clinical-Longformer',  # Long clinical docs
+        # Note: Clinical-T5 requires flax (dependency conflicts with CUDA)
+        # 'clinical-t5': 'luqh/ClinicalT5-large',
     }
 }
 
