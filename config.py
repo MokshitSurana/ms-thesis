@@ -9,8 +9,11 @@ MODELS = {
         'pegasus': 'google/pegasus-large',
     },
     'medical': {
-        'clinical-t5': 'luqh/ClinicalT5-large',  # Medical T5 variant
-        'biogpt': 'microsoft/biogpt-large',       # Alternative medical model
+        # Native PyTorch models (no flax dependency)
+        'biobart': 'GanjinZero/biobart-v2-large',      # BioBERT + BART
+        'clinical-longformer': 'yikuan8/Clinical-Longformer',  # Long clinical docs
+        # Note: Clinical-T5 requires flax (dependency conflicts with CUDA)
+        # 'clinical-t5': 'luqh/ClinicalT5-large',
     }
 }
 
@@ -25,7 +28,7 @@ GENERATION_CONFIG = {
 }
 
 # Input Processing
-MAX_INPUT_LENGTH = 2048  # Increased from 1024 to handle longer clinical notes
+MAX_INPUT_LENGTH = 1024  # BART max position embeddings (cannot exceed without model modification)
 
 # Note Structure Variants
 STRUCTURE_VARIANTS = [
